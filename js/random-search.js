@@ -1,5 +1,8 @@
-import { cardComponent } from './functions/components.js';
+import { cardComponent, navbar } from './functions/components.js';
 import { Clipboard_CopyTo } from './functions/confiq.js';
+
+const nav = document.querySelector('nav');
+nav.innerHTML = navbar();
 
 // selector
 const btnRandomSearch = document.querySelector('.btn-random-search');
