@@ -9,16 +9,23 @@ const Clipboard_CopyTo = value => {
   document.body.removeChild(tempInput);
 }
 
-function getQuotes(keyword) {
-  return fetch(`https://animechan.vercel.app/api/quotes/character?name=${keyword}`)
+function getQuotes(keyword, typeOfSearch) {
+    let url = '';
+    if(!typeOfSearch) {
+        url = `https://animechan.vercel.app/api/quotes/character?name=${keyword}`;
+    } else {
+        url = `https://animechan.vercel.app/api/quotes/anime?title=${keyword}`;
+    }
+
+  return fetch(url)
       .then(response => {
           return response.json()
       })
       .then(response => {
           if( response.error === "Bad Request" ) {
-              throw new Error(`inputan kosong or ${response.error}`);
+              throw new Error(`inputan kosong (${response.error})`);
           } else if( response.error === "No related quotes found!" ) {
-              throw new Error(`keyword tidak dikenali or ${response.error}`);
+              throw new Error(`keyword tidak dikenali (${response.error})`);
           }
           const spinner = document.querySelector('.spinner-border');
           spinner.classList.toggle('d-none');
