@@ -1,11 +1,16 @@
-import { mainPage, randomSearchPage, searchByKeywordPage, cardComponent, updateCardBodyContent } from './functions/components.js';
+import { mainPage, randomSearchPage, searchByKeywordPage, cardComponent, updateCardBodyContent, aboutPage } from './functions/components.js';
 import { Clipboard_CopyTo, getQuotes } from './functions/utility.js';
+
+// ubah wallpaper secara random
+const images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg', 'image9.jpg', 'image10.jpg'];
+document.querySelector('body#home').style.backgroundImage = 'url(img/wallpaper/' + images[Math.floor(Math.random() * images.length)] + ')';
 
 const body = document.querySelector('#body');
 
 document.addEventListener('click', async function (e) {
   e.preventDefault();
-  if( e.target.textContent === "Home" ) body.innerHTML = mainPage(); 
+  if( e.target.textContent === "Home" ) body.innerHTML = mainPage();
+  else if( e.target.textContent === "About" ) body.innerHTML = aboutPage();
   else if( e.target.textContent === "Search for Random Quote" ) body.innerHTML = randomSearchPage();
   else if( e.target.textContent === "Search by Character Name" ) body.innerHTML = searchByKeywordPage("enter a character's name");
   else if( e.target.textContent === "Search by Anime Title" ) body.innerHTML = searchByKeywordPage("enter an anime title");

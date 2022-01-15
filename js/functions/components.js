@@ -28,11 +28,27 @@ const mainPage = () => {
 </div>`;
 }
 
+const aboutPage = () => {
+  return `<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card link-card shadow-sm border border-4 border-secondary mb-4">
+        <div class="card-body text-center p-2 ms-2">
+          <div class="d-grid gap-1 fs-5">
+            <p>This is just a small and simple website where you can search for anime quotes based on certain categories. I use a free API called <a href="https://animechan.vercel.app/" class="link-primary">Animechan</a> to get the data such as anime title, the character, and its quote.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
 const randomSearchPage = () => {
   return `<div class="container">
     <div class="row justify-content-center">
     <div class="col-lg-8">
-      <div class="card shadow-sm mb-4">
+      <div class="card shadow-sm card-page mb-4">
         <div class="card-header" style="background-color: #ddd;">
           <span class="fw-bold fs-5 d-inline-block pt-1">Search Random Quote</span>
           <button type="button" class="btn btn-primary float-end btn-random-search">Search</button>
@@ -55,7 +71,7 @@ const searchByKeywordPage = (placeHolderMsg) => {
   return `<div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-8">
-      <div class="card shadow-sm mb-4">
+      <div class="card shadow-sm card-page mb-4">
         <div class="card-header" style="background-color: #ddd;">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="${placeHolderMsg}" aria-label="Recipient's username" id="character-name-input">
@@ -129,4 +145,4 @@ const updateCardBodyContent = (arrQuote) => {
   </div>`;
 }
 
-export { mainPage, randomSearchPage, searchByKeywordPage, cardComponent, updateCardBodyContent };
+export { mainPage, randomSearchPage, searchByKeywordPage, cardComponent, updateCardBodyContent, aboutPage };
